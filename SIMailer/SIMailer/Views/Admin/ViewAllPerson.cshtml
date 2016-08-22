@@ -116,14 +116,17 @@
                                 <h4 class="modal-title" id="myModalLabel">Add New Person</h4>
                             </div>
                             <div class="modal-body">
+                              
                                 <div>
-                                    <input type="text" name="Name" placeholder="Enter Name" value="" />
+                                    <input type="text" name="Name" placeholder="Enter Name" value="" required />
+                                    
                                 </div>
                                 <div>
-                                    <input type="text" name="EmailId" placeholder="Enter EmailId" value="" />
+                                    <input type="email" name="EmailId" placeholder="Enter EmailId" value=""  required  />
                                 </div>
                                 <div>
                                     @Html.DropDownList("TypeId", new SelectList(ViewBag.dataPersonType, "Id", "Name"), "Select Person Type")
+                                   @Html.ValidationMessage("TypeId")
                                 </div>
                             </div>
                             <div class="modal-footer">

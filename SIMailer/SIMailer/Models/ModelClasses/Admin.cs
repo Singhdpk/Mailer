@@ -12,6 +12,7 @@ namespace SIMailer.Models.ModelClasses
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Required")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string EmailId { get; set; }
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Required")]

@@ -10,9 +10,13 @@ namespace SIMailer.Models.ModelClasses
     public class Person
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Required")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string EmailId { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string Name { get; set; }
         [Display(Name = "Type")]
+        [Required(ErrorMessage = "Required")]
         public int TypeId { get; set; }
         public bool isIncluded { get; set; }
 
