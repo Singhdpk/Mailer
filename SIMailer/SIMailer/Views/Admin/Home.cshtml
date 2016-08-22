@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+@{
+    var message = TempData["AlertMessage"] ?? string.Empty;
+}
+
+<script type="text/javascript">
+    var message = '@message';
+    if(message)
+        alert(message);
+</script>
+<h2>Home</h2>
+<div class="container">
+    <div>
+    @Html.ActionLink("Create & Send new mail", "CreateMail")
+</div>
+    <div>
+        @Html.ActionLink("Register New Admin", "RegisterAdmin")
+    </div>
+    <div>
+        @Html.ActionLink("View All Mail Category", "ViewAllMailCategory")
+    </div>
+    <div>
+        @Html.ActionLink("View All Person", "ViewAllPerson")
+    </div>
+    <div>
+        @Html.ActionLink("View All Person Type", "ViewAllPersonType")
+    </div>
+    <div>
+        @Html.ActionLink("View All Send Mail", "ViewAllSendMail")
+    </div>
+  </div>
+

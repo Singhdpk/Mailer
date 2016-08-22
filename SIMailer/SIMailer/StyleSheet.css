@@ -1,0 +1,59 @@
+﻿body {
+
+
+}
+
+@media (min-width: 768px){
+    .modal-sm {
+        width: 300px!important;
+    }
+}
+@media (min-width: 768px){
+    .modal-dialog {
+        width:50% !important;
+        margin: 30px auto !important;
+    }
+}
+.modal-dialog {
+    position:absolute !important;
+    margin: 10px !important;
+}
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        left: 25% !important;
+    }
+}
+
+.custom-form-container {
+    padding: 10px;
+    background-color: #fafafa;
+    padding-left: 28px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.panel-heading {
+    background-color: #757575 !important;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+    .panel-heading:hover {
+        background-color: #3dcaf3 !important;
+        font-weight: bold;
+        font-size: 110%;
+        text-decoration: none;
+    }
+
+a:hover {
+    text-decoration: none;
+}
+
+.panel panel-default a {
+    background-color: #3dcaf3;
+   
+}
+
+.panel-title {
+    color: white;
+}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SIMailer.Models.ModelClasses.MailCategory>
+@{
+    ViewBag.Title = "ViewAllMailCategory";
+}
+<h2>ViewAllMailCategory</h2>
+@using (Html.BeginForm("ViewAllMailCategory", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    if (Model.Any())
+    {
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.Category)
+                    </th>
+                    <th>
+                        <strong>Edit</strong>
+                    </th>
+                    <th>
+                        <strong>Delete</strong>
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    if (ViewBag.Id != item.Id)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(itemModel => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(itemModel => item.Category)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "ViewAllMailCategory", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "DeleteMailCategory", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(itemModel => item.Id)
+                            </td>
+                            <td>
+                                <input type="hidden" name="Id" value="@item.Id" />
+                                <input type="text" name="Category" value="@item.Category" required />
+                            </td>
+                            <td>
+                                <input type="submit" value="Update" />
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "DeleteMailCategory", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+           
+        </div>
+    }
+    else
+    {
+
+    }
+    <div>
+        Add new mail category:<input type="text" name="Category" />
+        <br />
+        <input type="submit" value="Add" />
+    </div>
+}

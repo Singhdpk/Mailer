@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SIMailer.Models.ModelClasses.PersonType>
+@{
+    ViewBag.Title = "ViewAllPersonType";
+}
+
+<h2>ViewAllPersonType</h2>
+@using (Html.BeginForm("ViewAllPersonType", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    if (Model.Any())
+    {
+        <div class="container">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.Name)
+                    </th>
+                    <th>
+                        <strong>Edit</strong>
+                    </th>
+                    <th>
+                        <strong>Delete</strong>
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    if (ViewBag.Id != item.Id)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(itemModel => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(itemModel => item.Name)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "ViewAllPersonType", new { id = item.Id })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "DeletePersonType", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(itemModel => item.Id)
+                            </td>
+                            <td>
+                                <input type="hidden" name="Id" value="@item.Id"/>
+                                <input type="text" name="Name" value="@item.Name" required />
+                            </td>
+                            <td>
+                                <input type="submit" value="Update" />
+                            </td>
+                            <td>
+                                @Html.ActionLink("Delete", "DeletePersonType", new { id = item.Id })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+
+        </div>
+    }
+    else
+    {
+
+    }
+            <div>
+                Add new person type:<input type="text" name="Name" />
+                <br />
+                <input type="submit" value="Add" />
+            </div>
+        
+    }
+

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbSIMailerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblMailCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblMails" Relationship="dbSIMailerModel.FK_tblMails_tblMailCategory" FromRole="tblMailCategory" ToRole="tblMail" />
+  </EntityType>
+  <EntityType Name="tblMail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdminId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblMailCategory" Relationship="dbSIMailerModel.FK_tblMails_tblMailCategory" FromRole="tblMail" ToRole="tblMailCategory" />
+    <NavigationProperty Name="tblSendToes" Relationship="dbSIMailerModel.FK_tblSendTo_tblMails" FromRole="tblMail" ToRole="tblSendTo" />
+  </EntityType>
+  <EntityType Name="tblPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblPersonType" Relationship="dbSIMailerModel.FK_tblPerson_tblPersonType" FromRole="tblPerson" ToRole="tblPersonType" />
+    <NavigationProperty Name="tblSendToes" Relationship="dbSIMailerModel.FK_tblSendTo_tblPerson" FromRole="tblPerson" ToRole="tblSendTo" />
+  </EntityType>
+  <EntityType Name="tblPersonType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tblPersons" Relationship="dbSIMailerModel.FK_tblPerson_tblPersonType" FromRole="tblPersonType" ToRole="tblPerson" />
+  </EntityType>
+  <EntityType Name="tblSendTo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MailId" Type="Int32" Nullable="false" />
+    <Property Name="PersonId" Type="Int32" Nullable="false" />
+    <Property Name="AdminId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblMail" Relationship="dbSIMailerModel.FK_tblSendTo_tblMails" FromRole="tblSendTo" ToRole="tblMail" />
+    <NavigationProperty Name="tblPerson" Relationship="dbSIMailerModel.FK_tblSendTo_tblPerson" FromRole="tblSendTo" ToRole="tblPerson" />
+  </EntityType>
+  <EntityType Name="tblAdmin" Abstract="false">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="dbSIMailerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblMailCategories" EntityType="Self.tblMailCategory" />
+    <EntitySet Name="tblMails" EntityType="Self.tblMail" />
+    <EntitySet Name="tblPersons" EntityType="Self.tblPerson" />
+    <EntitySet Name="tblPersonTypes" EntityType="Self.tblPersonType" />
+    <EntitySet Name="tblSendToes" EntityType="Self.tblSendTo" />
+    <EntitySet Name="tblAdmins" EntityType="Self.tblAdmin" />
+    <EntitySet Name="sysdiagrams" EntityType="dbSIMailerModel.sysdiagram" />
+    <AssociationSet Name="FK_tblMails_tblMailCategory" Association="dbSIMailerModel.FK_tblMails_tblMailCategory">
+      <End Role="tblMailCategory" EntitySet="tblMailCategories" />
+      <End Role="tblMail" EntitySet="tblMails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSendTo_tblMails" Association="dbSIMailerModel.FK_tblSendTo_tblMails">
+      <End EntitySet="tblMails" Role="tblMail" />
+      <End EntitySet="tblSendToes" Role="tblSendTo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPerson_tblPersonType" Association="dbSIMailerModel.FK_tblPerson_tblPersonType">
+      <End Role="tblPersonType" EntitySet="tblPersonTypes" />
+      <End Role="tblPerson" EntitySet="tblPersons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSendTo_tblPerson" Association="dbSIMailerModel.FK_tblSendTo_tblPerson">
+      <End Role="tblPerson" EntitySet="tblPersons" />
+      <End Role="tblSendTo" EntitySet="tblSendToes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_tblMails_tblMailCategory">
+    <End Type="dbSIMailerModel.tblMailCategory" Role="tblMailCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbSIMailerModel.tblMail" Role="tblMail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMailCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblMail">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSendTo_tblMails">
+    <End Type="dbSIMailerModel.tblMail" Multiplicity="1" Role="tblMail">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbSIMailerModel.tblSendTo" Multiplicity="*" Role="tblSendTo" />
+    <ReferentialConstraint>
+      <Principal Role="tblMail">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblSendTo">
+        <PropertyRef Name="MailId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPerson_tblPersonType">
+    <End Type="dbSIMailerModel.tblPersonType" Role="tblPersonType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbSIMailerModel.tblPerson" Role="tblPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPersonType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPerson">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSendTo_tblPerson">
+    <End Type="dbSIMailerModel.tblPerson" Role="tblPerson" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="dbSIMailerModel.tblSendTo" Role="tblSendTo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPerson">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblSendTo">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

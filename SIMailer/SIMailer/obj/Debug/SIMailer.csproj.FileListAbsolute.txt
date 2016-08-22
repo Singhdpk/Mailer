@@ -1,0 +1,153 @@
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\ApplicationInsights.config
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\csc.exe
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\System.Collections.Immutable.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\System.Reflection.Metadata.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\vbc.exe
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\VBCSCompiler.exe
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\roslyn\VBCSCompiler.exe.config
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\SIMailer.dll.config
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\SIMailer.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\SIMailer.pdb
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\EntityFramework.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\EntityFramework.SqlServer.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.DependencyCollector.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.Web.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.WindowsServer.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.ApplicationInsights.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.Web.Infrastructure.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Helpers.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Mvc.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Razor.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Webpages.Deployment.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Webpages.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Webpages.Razor.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\EntityFramework.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\EntityFramework.SqlServer.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.DependencyCollector.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.Web.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.AI.WindowsServer.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.ApplicationInsights.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Razor.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Webpages.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Webpages.Deployment.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Webpages.Razor.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Helpers.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\bin\System.Web.Mvc.xml
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\obj\Debug\SIMailer.dll
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\obj\Debug\SIMailer.pdb
+D:\Personal\SiMailer\ProjectFolder\SIMailer\SIMailer\obj\Debug\SIMailer.csprojResolveAssemblyReference.cache
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\ApplicationInsights.config
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\csc.exe
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\System.Collections.Immutable.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\System.Reflection.Metadata.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\vbc.exe
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\VBCSCompiler.exe
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\roslyn\VBCSCompiler.exe.config
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\SIMailer.dll.config
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\SIMailer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\SIMailer.pdb
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.SqlServer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.Agent.Intercept.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.DependencyCollector.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.Web.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.WindowsServer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.ApplicationInsights.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.Web.Infrastructure.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Helpers.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Mvc.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Razor.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Deployment.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Razor.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.SqlServer.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.DependencyCollector.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.Web.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.WindowsServer.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.ApplicationInsights.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Razor.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Deployment.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Razor.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Helpers.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Mvc.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\obj\Debug\SIMailer.csprojResolveAssemblyReference.cache
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\obj\Debug\SIMailer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\obj\Debug\SIMailer.pdb
+D:\Personal\SiMailer\GIT_Folder\SIMailer\SIMailer\obj\Debug\SIMailer.csprojResolveAssemblyReference.cache
+D:\Personal\SiMailer\GIT_Folder\SIMailer\SIMailer\obj\Debug\SIMailer.dll
+D:\Personal\SiMailer\GIT_Folder\SIMailer\SIMailer\obj\Debug\SIMailer.pdb
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\ApplicationInsights.config
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\csc.exe
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\System.Collections.Immutable.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\System.Reflection.Metadata.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\vbc.exe
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\VBCSCompiler.exe
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\roslyn\VBCSCompiler.exe.config
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\SIMailer.dll.config
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\SIMailer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\SIMailer.pdb
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.SqlServer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.Agent.Intercept.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.DependencyCollector.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.Web.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.WindowsServer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.ApplicationInsights.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.Web.Infrastructure.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Helpers.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Mvc.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Razor.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Deployment.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Razor.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\EntityFramework.SqlServer.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.DependencyCollector.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.Web.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.AI.WindowsServer.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.ApplicationInsights.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Razor.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Deployment.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Webpages.Razor.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Helpers.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\bin\System.Web.Mvc.xml
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\obj\Debug\SIMailer.csprojResolveAssemblyReference.cache
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\obj\Debug\SIMailer.dll
+E:\SI Mailer\SIMailer\SIMailer\SIMailer\SIMailer\obj\Debug\SIMailer.pdb

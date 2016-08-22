@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SIMailer.Models.ModelClasses.Mails>
+@{
+    ViewBag.Title = "ViewAllSendMail";
+}
+
+@*Bootstap CDN Start*@
+<link href="~/stylesheet.css" rel="stylesheet" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="@Url.Content("~/Scripts/SideNav.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+<h2>ViewAllSendMail</h2>
+@using (Html.BeginForm("ViewAllSendMail", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        @if (Model.Any())
+        {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(Model => Model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => Model.CategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => Model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => Model.Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => Model.Body)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(Model => Model.AdminId)
+                </th>
+                <th>
+                    <strong>Use</strong>
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </th>
+                    @for (var i = 0; i < ViewBag.dataMailCategory.Count; i++)
+                    {
+                        if (ViewBag.dataMailCategory[i].Id == item.CategoryId)
+                        {
+                            <th>
+                                @ViewBag.dataMailCategory[i].Category
+                            </th>
+                        }
+                    }
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </th>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Body)
+                    </th>
+                    @for (var i = 0; i < ViewBag.dataAdmin.Count; i++)
+                    {
+                        if (ViewBag.dataAdmin[i].Id == item.AdminId)
+                        {
+                            <th>
+                                @ViewBag.dataAdmin[i].EmailId
+                            </th>
+                        }
+                    }
+                    <th>
+                        @Html.ActionLink("Use", "CreateMail", new { id = item.Id })
+                    </th>
+                </tr>
+            }
+        </table>
+        }
+    </div>
+
+}

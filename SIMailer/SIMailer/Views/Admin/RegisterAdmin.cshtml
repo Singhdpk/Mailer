@@ -1,0 +1,73 @@
+﻿@model SIMailer.Models.ModelClasses.Admin
+@{
+    ViewBag.Title = "RegisterAdmin";
+}
+<h2>RegisterAdmin</h2>
+@using (Html.BeginForm("RegisterAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="container">
+        <div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.EmailId)
+                    </th>
+                    <th>
+                        <strong>Delete</strong>
+                    </th>
+                </tr>
+                @foreach (var item in ViewBag.dataAdmin)
+                {
+                    <tr>
+
+                        <td>
+                            @item.Id
+                        </td>
+                        <td>
+                            @item.EmailId
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteAdmin", new { id = item.Id })
+                        </td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Register</button>
+        </div>
+        @*Add Category Modal Button End*@
+        @*Add Category Modal Start*@
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Register</h4>
+                    </div>
+                    <div class="modal-body">
+                        EmailId:
+                        @Html.EditorFor(Model => Model.EmailId)
+                        @Html.ValidationMessageFor(Model => Model.EmailId)
+                        Passowrd:
+                        @Html.PasswordFor(Model => Model.Password)
+                        @Html.ValidationMessageFor(Model => Model.Password)
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Register" class="btn btn-primary custom-btn" style="background-color:#00acac; width:15%; margin-left:2%;" />
+                        @Html.ValidationSummary(true)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

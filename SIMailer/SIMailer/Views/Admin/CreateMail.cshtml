@@ -1,0 +1,160 @@
+﻿@model SIMailer.Models.ModelClasses.Mails
+@{
+    ViewBag.Title = "CreateMail";
+}
+
+@*Bootstap CDN Start*@
+
+<link href="~/stylesheet.css" rel="stylesheet" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="@Url.Content("~/Scripts/SideNav.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<h2>CreateMail</h2>
+@using (Html.BeginForm("CreateMail", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <div>
+            @Html.DropDownListFor(Model => Model.CategoryId, new SelectList(ViewBag.dataMailCategory, "Id", "Category"), "Select Category", new { @style = "width:68%;height:27px;" })
+            @Html.ValidationMessageFor(Model => Model.CategoryId, "", new { @class = "text-danger" })
+        </div>
+        @*Add Category Modal Button Start*@
+        <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Add New Category</button>
+        </div>
+        @*Add Category Modal Button End*@
+        @*Add Category Modal Start*@
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Add New Category</h4>
+                    </div>
+                    <div class="modal-body">
+                        @Html.EditorFor(Model => Model.mailCategories.Category, new { htmlAttributes = new { placeholder = "Enter Category" } })
+                        @Html.ValidationMessageFor(Model => Model.mailCategories.Category, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Add" class="btn btn-primary btn-md" style="background-color:#00acac" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*Add Category Modal End*@
+        @*Send To Modal Button Start*@
+        <div>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add Recipients</button>
+        </div>
+        @*Send To Modal Button End*@
+        @Html.HiddenFor(Model => Model.Id)
+        <div>
+            @Html.EditorFor(Model => Model.Title, new { htmlAttributes = new { placeholder = "Title" } })
+            @Html.ValidationMessageFor(Model => Model.Title, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.EditorFor(Model => Model.Subject, new { htmlAttributes = new { placeholder = "Subject" } })
+            @Html.ValidationMessageFor(Model => Model.Subject, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.TextAreaFor(Model => Model.Body, new { placeholder = "Body" })
+            @Html.ValidationMessageFor(Model => Model.Body, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            <input type="submit" value="Send" class="btn btn-primary btn-md custom-btn" />
+        </div>
+        @*Send To Modal Start*@
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Sent to...</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col">
+                            <div class="container" style="width:auto">
+                                @if (ViewBag.dataPersonType != null || ViewBag.dataPersonType.Count == 0)
+                                {
+                                    for (int i = 0; i < ViewBag.dataPersonType.Count; i++)
+                                    {
+
+                                        <div class="col-sm-@ViewBag.dataPersonType.Count">
+                                            <div class="panel panel-default">
+
+                                                <input type="checkbox" id="chkHeader" class="header" />
+                                                <a class="list-group-item" data-toggle="collapse" href="#collapsePersonType@(i)">
+                                                    @ViewBag.dataPersonType[i].Name
+                                                </a>
+                                                <div class="panel-collapse collapse" id="collapsePersonType@(i)">
+                                                    <div class="panel-body">
+                                                        @for (int j = 0; j < ViewBag.dataPerson.Count; j++)
+                                                        {
+                                                            if (ViewBag.dataPerson[j].TypeId == ViewBag.dataPersonType[i].Id)
+                                                            {
+                                                                @Html.HiddenFor(Model => Model.persons[j].Id, new { Value = ViewBag.dataPerson[j].Id })
+                                                                @Html.HiddenFor(Model => Model.persons[j].EmailId, new { Value = ViewBag.dataPerson[j].EmailId })
+                                                                @Html.HiddenFor(Model => Model.persons[j].Name, new { Value = ViewBag.dataPerson[j].Name })
+                                                                @Html.HiddenFor(Model => Model.persons[j].TypeId, new { Value = ViewBag.dataPerson[j].TypeId })
+                                                                @Html.CheckBoxFor(Model => Model.persons[j].isIncluded, new { id = "chkItems", @class = "item"})
+                                                                @ViewBag.dataPerson[j].Name
+                                                            }
+                                                        }
+                                                    </div>
+                                                </div>
+                                              
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*Send To Modal End*@
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var chkAll = $('.header').click(function () {
+            //Check header and item's checboxes on click of header checkbox
+            chkItem.prop('checked', $(this).is(':checked'));
+        });
+        var chkItem = $(".item").click(function () {
+            //If any of the item's checkbox is unchecked then also uncheck header's checkbox
+            chkAll.prop('checked', chkItem.filter(':not(:checked)').length == 0);
+        });
+    });
+
+</script>
+
+
+
+
