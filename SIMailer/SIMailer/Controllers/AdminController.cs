@@ -1,5 +1,6 @@
 ﻿using SIMailer.Enums;
 using SIMailer.Models.ModelClasses;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -13,10 +14,14 @@ namespace SIMailer.Controllers
         MailCategory objMailCategory = new MailCategory();
         Person objPerson = new Person();
         Mails objMails = new Mails();
-
+        SendTo objSendTo = new SendTo();
         [HttpGet, ActionName("CreateMail")]
         public ActionResult CreateAndEditMail(int? id)
         {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
             MailCategory objMailCategory = new MailCategory();
             Person objPerson = new Person();
             PersonType objPersonType = new PersonType();
@@ -36,9 +41,14 @@ namespace SIMailer.Controllers
             }
         }
 
+
         [HttpPost, ActionName("CreateMail")]
         public ActionResult CreateAndEditMail(Mails objMails)
         {
+            if (objMails.CategoryId == 0 && objMails.mailCategories.Category != null)
+            {
+                bool isCategoryAdded = objMailCategory.AddGetMailCategoryId(objMails);
+            }
             bool mailSend = objMails.SendAndUpdateMail(objMails);
             if (mailSend)
                 TempData["AlertMessage"] = "Email Successfully Sent";
@@ -51,12 +61,21 @@ namespace SIMailer.Controllers
         [HttpGet, ActionName("Home")]
         public ActionResult Home()
         {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
             return View();
         }
 
         [HttpGet, ActionName("Login")]
         public ActionResult Login()
         {
+            if (Convert.ToInt32(Session["AdminId"]) != 0)
+            {
+                return RedirectToAction("Home");
+            }
+            Session["AdminId"] = 0;
             return View();
         }
 
@@ -65,7 +84,10 @@ namespace SIMailer.Controllers
         {
             LoginAdminStatus status = objAdminLogin.AdminLogin(objAdminLogin);
             if (status == LoginAdminStatus.Successfull)
-                return RedirectToAction("CreateMail");
+            {
+                Session["AdminId"] = objAdminLogin.Id;
+                return RedirectToAction("Home");
+            }
 
             else if (status == LoginAdminStatus.IncorrectPassowrd)
             {
@@ -84,56 +106,44 @@ namespace SIMailer.Controllers
         [HttpGet, ActionName("RegisterAdmin")]
         public ActionResult RegisterAdmin()
         {
-           ViewBag.dataAdmin = objAdmin.GetAllData();
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
+            ViewBag.dataAdmin = objAdmin.GetAllData();
             return View();
         }
         [HttpPost, ActionName("RegisterAdmin")]
         public ActionResult AddNewAdmin(Admin objAdmin)
         {
-            bool isAdded = objAdmin.AddNewAdmin(objAdmin);
-            if (isAdded)
-                TempData["AlertMessage"] = "Registration Successfull";
+            AdminRgistrationStatus isAdded = objAdmin.AddNewAdmin(objAdmin);
+            if (isAdded == AdminRgistrationStatus.Successfull)
+                TempData["AlertMessageAdmin"] = "Registration Successfull";
 
+            else if (isAdded == AdminRgistrationStatus.AlreadyRegistered)
+                TempData["AlertMessageAdmin"] = "Already Registered";
             else
-                TempData["AlertMessage"] = "Registration Failed";
+                TempData["AlertMessageAdmin"] = "Registration Failed";
 
             return RedirectToAction("RegisterAdmin");
         }
- 
+
         [ActionName("DeleteAdmin")]
         public ActionResult DeleteAdminById(int id)
         {
             bool isDeleted = objAdmin.DeleteAdminById(id);
             return RedirectToAction("RegisterAdmin");
         }
-     
-        [HttpGet, ActionName("AddNewPersonType")]
-        public ActionResult AddNewPersonType()
-        {
-            return View();
-        }
-  
 
-        [HttpPost, ActionName("AddNewPersonType")]
-        public ActionResult AddNewPersonType(PersonType objPersonType)
-        {
-            bool isDeleted = objPersonType.AddNewPersonType(objPersonType);
-            return RedirectToAction("AddPersonType");
-        }
 
-        [ActionName("AddNewMailCategory")]
-        public bool AddNewMailCategory(MailCategory objMailCategory)
-        {
-            bool isAdded = objMailCategory.AddNewMailCategory(objMailCategory);
-            if (isAdded)
-                return true;
-            else
-                return false;
-        }
 
         [HttpGet, ActionName("ViewAllMailCategory")]
         public ActionResult ViewAllMailCategory(int? id)
         {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
             ViewBag.Id = id;
             List<MailCategory> dataMailCategory = new List<MailCategory>();
             dataMailCategory = objMailCategory.GetAllData();
@@ -142,7 +152,7 @@ namespace SIMailer.Controllers
         [HttpPost, ActionName("ViewAllMailCategory")]
         public ActionResult ViewAllMailCategory(MailCategory objMailCategory)
         {
-            bool isAdded = AddNewMailCategory(objMailCategory);
+            bool isAdded = objMailCategory.AddNewMailCategory(objMailCategory);
             List<MailCategory> dataMailCategory = new List<MailCategory>();
             dataMailCategory = objMailCategory.GetAllData();
             return View(dataMailCategory);
@@ -156,6 +166,10 @@ namespace SIMailer.Controllers
         [HttpGet, ActionName("ViewAllPersonType")]
         public ActionResult ViewAllPersonType(int? id)
         {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
             ViewBag.Id = id;
             List<PersonType> dataPersonType = new List<PersonType>();
             dataPersonType = objPersonType.GetAllData();
@@ -166,10 +180,11 @@ namespace SIMailer.Controllers
         {
             bool isAdded = objPersonType.AddNewPersonType(objPersonType);
             return View(objPersonType.GetAllData());
- }
+        }
         [ActionName("DeletePersonType")]
         public ActionResult DeletePersonTypeById(int id)
         {
+
             bool isDeleted = objPersonType.DeletePersonTypeById(id);
             return RedirectToAction("ViewAllPersonType");
         }
@@ -177,6 +192,10 @@ namespace SIMailer.Controllers
         [HttpGet, ActionName("ViewAllPerson")]
         public ActionResult ViewAllPerson(int? id)
         {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
             ViewBag.id = id;
             ViewBag.dataPersonType = objPersonType.GetAllData();
             return View(objPerson.GetAllData());
@@ -184,7 +203,21 @@ namespace SIMailer.Controllers
         [HttpPost, ActionName("ViewAllPerson")]
         public ActionResult ViewAllPerson(Person objPerson)
         {
-            bool isAdded = objPerson.AddPerson(objPerson);
+           
+
+            AddPersonStatus isAdded = objPerson.AddPerson(objPerson);
+
+            if (isAdded == AddPersonStatus.Successfull)
+                TempData["AlertMessagePerson"] = "Person Successfully Added";
+
+            else if (isAdded == AddPersonStatus.AlreadyRegistered)
+                TempData["AlertMessagePerson"] = "Person with this EMail Already Registered";
+            else if(isAdded == AddPersonStatus.IsEdited)
+                TempData["AlertMessagePerson"] = "Person Edited Successfully";
+            else
+                TempData["AlertMessagePerson"] = "Unable to add new person";
+
+
             return RedirectToAction("ViewAllPerson");
         }
         [ActionName("DeletePerson")]
@@ -196,10 +229,27 @@ namespace SIMailer.Controllers
         [HttpGet, ActionName("ViewAllSendMail")]
         public ActionResult ViewAllSendMail()
         {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
             ViewBag.dataMailCategory = objMailCategory.GetAllData();
             ViewBag.dataAdmin = objAdmin.GetAllData();
             List<Mails> dataMails = objMails.GetAllData();
             return View(dataMails);
+        }
+        [HttpGet, ActionName("ViewAllSendTo")]
+        public ActionResult ViewAllSendTo()
+        {
+            if (Convert.ToInt32(Session["AdminId"]) == 0)
+            {
+                return RedirectToAction("Login");
+            }
+            ViewBag.dataMailCategory = objMailCategory.GetAllData();
+            ViewBag.dataMails = objMails.GetAllData();
+            ViewBag.dataPerson = objPerson.GetAllData();
+            ViewBag.dataAdmin = objAdmin.GetAllData();
+            return View(objSendTo.GetAllData());
         }
     }
 }

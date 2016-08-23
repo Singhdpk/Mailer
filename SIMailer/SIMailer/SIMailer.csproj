@@ -139,6 +139,8 @@
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="StyleSheet.css" />
     <Content Include="Web.config" />
@@ -197,6 +199,7 @@
     <Content Include="Views\Admin\ViewAllPersonType.cshtml" />
     <Content Include="Views\Admin\ViewAllPerson.cshtml" />
     <Content Include="Views\Admin\ViewAllSendMail.cshtml" />
+    <Content Include="Views\Admin\ViewAllSendTo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

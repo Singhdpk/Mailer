@@ -17,7 +17,27 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 
-<h2>ViewAllSendMail</h2>
+<ol class="breadcrumb">
+
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        @Html.ActionLink("Home", "Home")
+        <li class="active">
+            / @ViewBag.Title
+        </li>
+    }
+    else
+    {
+        <li class="active">
+            Home
+        </li>
+    }
+</ol>
+
+<div>
+    <center><h4><span class="custom-heading"><u>View all sent Mail</u></span></h4></center>
+</div>
+
 @using (Html.BeginForm("ViewAllSendMail", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="container">

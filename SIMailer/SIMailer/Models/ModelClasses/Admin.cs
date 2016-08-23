@@ -28,9 +28,9 @@ namespace SIMailer.Models.ModelClasses
         #endregion
 
         #region Add New Admin
-        public bool AddNewAdmin(Admin objAdminRegister)
+        public AdminRgistrationStatus AddNewAdmin(Admin objAdminRegister)
         {
-            bool isAdded = objAdminRepository.AddNewAdmin(objAdminRegister);
+            AdminRgistrationStatus isAdded = objAdminRepository.AddNewAdmin(objAdminRegister);
             return isAdded;
         }
         #endregion

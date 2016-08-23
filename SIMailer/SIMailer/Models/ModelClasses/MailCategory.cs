@@ -35,5 +35,10 @@ namespace SIMailer.Models.ModelClasses
             bool isAdded = objMailCategoryRepository.AddNewMailCategory(objMailcategory);
             return isAdded;
         }
+        public bool AddGetMailCategoryId(Mails objMails)
+        {
+            bool isAdded = objMailCategoryRepository.AddGetMailCategoryId(objMails);
+            return isAdded;
+        }
     }
 }

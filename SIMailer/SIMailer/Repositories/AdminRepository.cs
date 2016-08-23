@@ -19,6 +19,8 @@ namespace SIMailer.Repositories
                 try
                 {
                     tblAdmin objtblAdmin = new tblAdmin();
+                    objtblAdmin = db.tblAdmins.First(data => data.EmailId == objAdmin.EmailId && data.Password == objAdmin.Password);
+                    objAdmin.Id = objtblAdmin.Id;
                     if (objAdmin.EmailId == objtblAdmin.EmailId && objAdmin.Password == objtblAdmin.Password)
                     {
                         status = LoginAdminStatus.Successfull;
@@ -27,8 +29,6 @@ namespace SIMailer.Repositories
                     {
                         status = LoginAdminStatus.IncorrectPassowrd;
                     }
-
-                    
                     else
                     {
                         status = LoginAdminStatus.NotRegisterd;
@@ -41,34 +41,48 @@ namespace SIMailer.Repositories
                     return status;
                 }
             }
-        } 
+        }
         #endregion
 
-        #region Add New Admin
-        public bool AddNewAdmin(Admin objAdmin)
+        public AdminRgistrationStatus AddNewAdmin(Admin objAdmin)
         {
-            using (dbSIMailerEntities db = new dbSIMailerEntities())
+            try
             {
-                try
+                tblAdmin objtblAdmin = new tblAdmin();
+                using (dbSIMailerEntities db = new dbSIMailerEntities())
                 {
-                    tblAdmin objtblAdmin = new tblAdmin();
-                    objtblAdmin.EmailId = objAdmin.EmailId;
-                    objtblAdmin.Password = objAdmin.Password;
-                    db.tblAdmins.AddObject(objtblAdmin);
-                    db.SaveChanges();
-
-                    return true;
+                    objtblAdmin = db.tblAdmins.First(data => data.EmailId == objAdmin.EmailId);
                 }
-                catch (Exception ex)
+
+
+                    using (dbSIMailerEntities db = new dbSIMailerEntities())
                 {
-                    return false;
+
+                    if (objtblAdmin == null)
+                    {
+                        objtblAdmin.EmailId = objAdmin.EmailId;
+                        objtblAdmin.Password = objAdmin.Password;
+                        db.tblAdmins.AddObject(objtblAdmin);
+                        db.SaveChanges();
+                        return AdminRgistrationStatus.Successfull;
+                    }
+                    else
+                    {
+                        return AdminRgistrationStatus.AlreadyRegistered;
+
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                return AdminRgistrationStatus.Exception;
+            }
+
         }
 
-        #endregion
+  
 
-   
+
         public bool DeleteAdminById(int AdminId)
         {
             using (dbSIMailerEntities db = new dbSIMailerEntities())
@@ -105,7 +119,7 @@ namespace SIMailer.Repositories
                 }
                 return dataAdmin;
             }
-        } 
+        }
 
     }
 }

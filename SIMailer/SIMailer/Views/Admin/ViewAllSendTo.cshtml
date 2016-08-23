@@ -1,0 +1,108 @@
+﻿@model IEnumerable<SIMailer.Models.ModelClasses.SendTo>
+@{
+    ViewBag.Title = "ViewAllSendTo";
+}
+<link href="~/stylesheet.css" rel="stylesheet" />
+<ol class="breadcrumb">
+
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        @Html.ActionLink("Home", "Home")
+        <li class="active">
+            / @ViewBag.Title
+        </li>
+    }
+    else
+    {
+        <li class="active">
+            Home
+        </li>
+    }
+</ol>
+
+<div>
+    <center><h4><span class="custom-heading"><u>Users to whom mail have been sent</u></span></h4></center>
+</div>
+@using (Html.BeginForm("ViewAllPerson", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        @if (Model.Any())
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model.Id)
+                    </th>
+                    <th>
+                        <strong>From Admin</strong>
+                    </th>
+                    <th>
+                        <strong>Category</strong>
+                    </th>
+                    <th>
+                        <strong>Title</strong>
+                    </th>
+                    <th>
+                        <strong>Subject</strong>
+                    </th>
+                    <th>
+                        <strong>Send to</strong>
+                    </th>
+                    <th>
+                        <strong>Use</strong>
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(itemModel => item.Id)
+                        </td>
+                        <td>
+                            @for (var i = 0; i < ViewBag.dataAdmin.Count; i++)
+                            {
+                                if (ViewBag.dataAdmin[i].Id == item.Adminid)
+                                {
+                                    @ViewBag.dataAdmin[i].EmailId
+                                }
+                            }
+                        </td>
+                        @for (var i = 0; i < ViewBag.dataMails.Count; i++)
+                        {
+                            if (ViewBag.dataMails[i].Id == item.MailId)
+                            {
+                                <td>
+                                    @for (var j = 0; j < ViewBag.dataMailCategory.Count; j++)
+                                {
+                                    if (ViewBag.dataMailCategory[j].Id == ViewBag.dataMails[i].CategoryId)
+                                    {
+                                            @ViewBag.dataMailCategory[j].Category
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    @ViewBag.dataMails[i].Title
+                                </td>
+                                <td>
+                                    @ViewBag.dataMails[i].Subject
+                            </td>
+                            }
+                        }
+                        <td>
+                            @for(var i=0;i< ViewBag.dataPerson.Count;i++)
+                            {
+                                if(ViewBag.dataPerson[i].Id==item.PersonId)
+                                {
+                                    @ViewBag.dataPerson[i].Name
+                                }
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Use", "CreateMail", new { id = item.MailId })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+}

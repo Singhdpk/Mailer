@@ -2,7 +2,29 @@
 @{
     ViewBag.Title = "ViewAllMailCategory";
 }
-<h2>ViewAllMailCategory</h2>
+<link href="~/stylesheet.css" rel="stylesheet" />
+
+
+<ol class="breadcrumb">
+
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        @Html.ActionLink("Home", "Home")
+        <li class="active">
+            / @ViewBag.Title
+        </li>
+    }
+    else
+    {
+        <li class="active">
+            Home
+        </li>
+    }
+</ol>
+<div>
+    <center><h4><span class="custom-heading"><u>View All Mail Category</u></span></h4></center>
+</div>
+
 @using (Html.BeginForm("ViewAllMailCategory", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     if (Model.Any())

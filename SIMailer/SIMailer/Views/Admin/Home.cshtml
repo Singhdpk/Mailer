@@ -5,31 +5,77 @@
 @{
     var message = TempData["AlertMessage"] ?? string.Empty;
 }
+<link href="~/stylesheet.css" rel="stylesheet" />
 
 <script type="text/javascript">
     var message = '@message';
-    if(message)
+    if (message)
         alert(message);
 </script>
-<h2>Home</h2>
-<div class="container">
-    <div>
-    @Html.ActionLink("Create & Send new mail", "CreateMail")
+<style>
+    a {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+</style>
+
+<div>
+    <center><h4><span class="custom-heading"><u>Home</u></span></h4></center>
 </div>
-    <div>
-        @Html.ActionLink("Register New Admin", "RegisterAdmin")
+<div class="well well-lg">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                @Html.ActionLink("Create & Send new mail", "CreateMail")
+            </div>
+        </div>
+        <br />
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                <div>
+                    @Html.ActionLink("Register New Admin", "RegisterAdmin")
+                </div>
+            </div>
+            <br />
+        </div>
     </div>
-    <div>
-        @Html.ActionLink("View All Mail Category", "ViewAllMailCategory")
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                @Html.ActionLink("View All Mail Category", "ViewAllMailCategory")
+            </div>
+        </div>
+        <br />
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                @Html.ActionLink("View All Person", "ViewAllPerson")
+            </div>
+        </div>
+        <br />
     </div>
-    <div>
-        @Html.ActionLink("View All Person", "ViewAllPerson")
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                @Html.ActionLink("View All Person Type", "ViewAllPersonType")
+            </div>
+        </div>
+        <br />
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                <div>
+                    @Html.ActionLink("View All Send Mail", "ViewAllSendMail")
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="col-lg-6">
+            <div class="btn btn-primary" style="color: #fff;">
+                <div>
+                    @Html.ActionLink("View All Send To", "ViewAllSendTo")
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <div>
-        @Html.ActionLink("View All Person Type", "ViewAllPersonType")
-    </div>
-    <div>
-        @Html.ActionLink("View All Send Mail", "ViewAllSendMail")
-    </div>
-  </div>
+</div>
 

@@ -29,6 +29,7 @@ namespace SIMailer.Repositories
                         });
                     }
                 }
+                dataMailCategory.Add(new MailCategory {Category="Add new category" });
                 return dataMailCategory;
             }
             catch (Exception ex)
@@ -127,6 +128,28 @@ namespace SIMailer.Repositories
 
             }
             return false;
+        }
+        public bool AddGetMailCategoryId(Mails objMails)
+        {
+            try
+            {
+                using (dbSIMailerEntities db = new dbSIMailerEntities())
+                {
+                    tblMailCategory objtblMailCategory = new tblMailCategory();
+                    objtblMailCategory.Category = objMails.mailCategories.Category;
+                    db.tblMailCategories.AddObject(objtblMailCategory);
+                    db.SaveChanges();
+                    objMails.CategoryId = objtblMailCategory.Id;
+                }
+                    return true;
+            }
+            catch(Exception ex)
+            {
+
+            }
+            return false;
+
+           
         }
     }
 }

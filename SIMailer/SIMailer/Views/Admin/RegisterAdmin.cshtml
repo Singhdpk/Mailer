@@ -2,7 +2,37 @@
 @{
     ViewBag.Title = "RegisterAdmin";
 }
-<h2>RegisterAdmin</h2>
+@{
+    var message = TempData["AlertMessageAdmin"] ?? string.Empty;
+}
+<script type="text/javascript">
+    var message = '@message';
+    if (message)
+        alert(message);
+</script>
+
+<link href="~/stylesheet.css" rel="stylesheet" />
+<ol class="breadcrumb">
+
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        @Html.ActionLink("Home", "Home")
+        <li class="active">
+            / @ViewBag.Title
+        </li>
+    }
+    else
+    {
+        <li class="active">
+            Home
+        </li>
+    }
+</ol>
+<div>
+    <center><h4><span class="custom-heading"><u>Register Admin</u></span></h4></center>
+</div>
+
+
 @using (Html.BeginForm("RegisterAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 

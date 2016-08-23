@@ -1,4 +1,5 @@
-﻿using SIMailer.Repositories;
+﻿using SIMailer.Enums;
+using SIMailer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,21 +11,17 @@ namespace SIMailer.Models.ModelClasses
     public class Person
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Required")]
-        [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string EmailId { get; set; }
-        [Required(ErrorMessage = "Required")]
         public string Name { get; set; }
         [Display(Name = "Type")]
-        [Required(ErrorMessage = "Required")]
         public int TypeId { get; set; }
         public bool isIncluded { get; set; }
 
         PersonRepository objPersonRepository = new PersonRepository();
 
-        public bool AddPerson(Person objPerson)
+        public AddPersonStatus AddPerson(Person objPerson)
         {
-            bool isAdded = objPersonRepository.AddPerson(objPerson);
+            AddPersonStatus isAdded = objPersonRepository.AddPerson(objPerson);
             return isAdded;
         }
 

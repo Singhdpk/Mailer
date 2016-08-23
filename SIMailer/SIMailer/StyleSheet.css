@@ -1,27 +1,32 @@
 ﻿body {
-
-
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     .modal-sm {
-        width: 300px!important;
+        width: 300px !important;
     }
 }
-@media (min-width: 768px){
+
+@media (min-width: 768px) {
     .modal-dialog {
-        width:50% !important;
+        width: 50% !important;
         margin: 30px auto !important;
     }
 }
+
 .modal-dialog {
-    position:absolute !important;
+    position: absolute !important;
     margin: 10px !important;
 }
+
 @media screen and (min-width: 768px) {
     .modal-dialog {
         left: 25% !important;
     }
+}
+
+.custom-heading {
+    font-family: 'Century Gothic';
 }
 
 .custom-form-container {
@@ -31,7 +36,9 @@
     padding-top: 25px;
     padding-bottom: 25px;
 }
-
+a{
+   
+}
 .panel-heading {
     background-color: #757575 !important;
     font-weight: bold;
@@ -51,9 +58,22 @@ a:hover {
 
 .panel panel-default a {
     background-color: #3dcaf3;
-   
 }
 
 .panel-title {
+    color: white;
+}
+
+.custom-table-head {
+    background-color: #3dcaf3;
+    color: white;
+}
+.custom-login {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.custom-breadcrumb {
+    background-color: #3dcaf3;
     color: white;
 }

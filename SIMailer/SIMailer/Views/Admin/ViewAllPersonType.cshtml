@@ -2,8 +2,27 @@
 @{
     ViewBag.Title = "ViewAllPersonType";
 }
+<link href="~/stylesheet.css" rel="stylesheet" />
 
-<h2>ViewAllPersonType</h2>
+<ol class="breadcrumb">
+
+    @if (ViewContext.RouteData.Values["controller"].ToString() != "Home")
+    {
+        @Html.ActionLink("Home", "Home")
+        <li class="active">
+            / @ViewBag.Title
+        </li>
+    }
+    else
+    {
+        <li class="active">
+            Home
+        </li>
+    }
+</ol>
+<div>
+    <center><h4><span class="custom-heading"><u>View All Person Type</u></span></h4></center>
+</div>
 @using (Html.BeginForm("ViewAllPersonType", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     if (Model.Any())

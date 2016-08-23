@@ -1,4 +1,5 @@
-﻿using SIMailer.Models;
+﻿using SIMailer.Enums;
+using SIMailer.Models;
 using SIMailer.Models.ModelClasses;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,41 @@ namespace SIMailer.Repositories
 {
     public class PersonRepository
     {
-        public bool AddPerson(Person objPerson)
+        public AddPersonStatus AddPerson(Person objPerson)
         {
             try
             {
                 if (objPerson.Id == 0)
                 {
+                    tblPerson objtblPerson = new tblPerson();
                     using (dbSIMailerEntities db = new dbSIMailerEntities())
                     {
-                      
-                        tblPerson objtblPerson = new tblPerson();
-                        objtblPerson.EmailId = objPerson.EmailId;
-                        objtblPerson.Name = objPerson.Name;
-                        objtblPerson.TypeId = objPerson.TypeId;
-                        db.tblPersons.AddObject(objtblPerson);
-                        db.SaveChanges();
+                        objtblPerson = db.tblPersons.First(data => data.EmailId == objPerson.EmailId);
+                    }
+                    if (objtblPerson == null)
+                    {
+                        using (dbSIMailerEntities db = new dbSIMailerEntities())
+                        {
 
+
+                            objtblPerson.EmailId = objPerson.EmailId;
+                            objtblPerson.Name = objPerson.Name;
+                            objtblPerson.TypeId = objPerson.TypeId;
+                            db.tblPersons.AddObject(objtblPerson);
+                            db.SaveChanges();
+                            return AddPersonStatus.Successfull;
+                        }
+                    }
+                    else
+                    {
+                        return AddPersonStatus.AlreadyRegistered;
                     }
                 }
                 else
                 {
                     using (dbSIMailerEntities db = new dbSIMailerEntities())
                     {
-                   
+
                         tblPerson objtblPerson = new tblPerson();
                         objtblPerson.EmailId = objPerson.EmailId;
                         objtblPerson.Name = objPerson.Name;
@@ -41,16 +54,15 @@ namespace SIMailer.Repositories
                         db.tblPersons.Attach(objtblPerson);
                         db.ObjectStateManager.ChangeObjectState(objtblPerson, EntityState.Modified);
                         db.SaveChanges();
-
+                        return AddPersonStatus.IsEdited;
                     }
                 }
 
                 
-                return true;
             }
             catch (Exception ex)
             {
-                return false;
+                return AddPersonStatus.Exception;
             }
         }
 
