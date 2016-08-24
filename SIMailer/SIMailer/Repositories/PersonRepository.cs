@@ -18,11 +18,12 @@ namespace SIMailer.Repositories
                 if (objPerson.Id == 0)
                 {
                     tblPerson objtblPerson = new tblPerson();
+                    List<tblPerson> objtblPersondata = new List<tblPerson>();
                     using (dbSIMailerEntities db = new dbSIMailerEntities())
                     {
-                        objtblPerson = db.tblPersons.First(data => data.EmailId == objPerson.EmailId);
+                        objtblPersondata = db.tblPersons.Where(data => data.EmailId == objPerson.EmailId).ToList();
                     }
-                    if (objtblPerson == null)
+                    if (objtblPersondata.Count == 0)
                     {
                         using (dbSIMailerEntities db = new dbSIMailerEntities())
                         {
@@ -58,14 +59,13 @@ namespace SIMailer.Repositories
                     }
                 }
 
-                
+
             }
             catch (Exception ex)
             {
                 return AddPersonStatus.Exception;
             }
         }
-
 
 
         #region Get List Of All Persons

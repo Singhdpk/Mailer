@@ -22,7 +22,7 @@ namespace SIMailer
                         {
                         MailMessage mail = new MailMessage();
                         mail.To.Add(item.EmailId);
-                        mail.From = new MailAddress("dpksingh1729@gmail.com");
+                        mail.From = new MailAddress("from");
                         mail.Subject = objMails.Subject;
                         string Body = objMails.Body;
                         mail.Body = Body;
@@ -32,7 +32,7 @@ namespace SIMailer
                         smtp.Port = 587;
                         smtp.UseDefaultCredentials = false;
                         smtp.Credentials = new System.Net.NetworkCredential
-                        ("dpksingh1729@gmail.com", "9990187161");// Enter senders User name and password
+                        ("email Address", "password");// Enter senders User name and password
                         smtp.EnableSsl = true;
                         smtp.Send(mail);
 

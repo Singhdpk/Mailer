@@ -45,6 +45,7 @@ namespace SIMailer.Controllers
         [HttpPost, ActionName("CreateMail")]
         public ActionResult CreateAndEditMail(Mails objMails)
         {
+            objMails.AdminId = Convert.ToInt32(Session["AdminId"]);
             if (objMails.CategoryId == 0 && objMails.mailCategories.Category != null)
             {
                 bool isCategoryAdded = objMailCategory.AddGetMailCategoryId(objMails);

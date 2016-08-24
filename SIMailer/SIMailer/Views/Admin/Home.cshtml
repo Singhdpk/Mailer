@@ -14,9 +14,16 @@
 </script>
 <style>
     a {
-    color: #f5f5f5;
-    text-decoration: none;
-}
+        color: #f5f5f5;
+        text-decoration: none;
+    }
+    .btn{
+            padding:10px;
+            width200px;
+        }
+    .padding{
+        padding:10px 5px;
+    }
 </style>
 
 <div>
@@ -24,58 +31,54 @@
 </div>
 <div class="well well-lg">
     <div class="row">
-        <div class="col-lg-6">
-            <div class="btn btn-primary" style="color: #fff;">
+        <div class="col-lg-6 padding">
+            <div class="btn btn-primary pull-right" style="color: #fff;">
                 @Html.ActionLink("Create & Send new mail", "CreateMail")
             </div>
         </div>
-        <br />
-        <div class="col-lg-6">
+        <div class="col-lg-6 padding">
             <div class="btn btn-primary" style="color: #fff;">
                 <div>
                     @Html.ActionLink("Register New Admin", "RegisterAdmin")
                 </div>
             </div>
-            <br />
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <div class="btn btn-primary" style="color: #fff;">
+        <div class="col-lg-6 padding">
+            <div class="btn btn-primary pull-right" style="color: #fff;">
                 @Html.ActionLink("View All Mail Category", "ViewAllMailCategory")
             </div>
         </div>
-        <br />
-        <div class="col-lg-6">
+        <div class="col-lg-6 padding">
             <div class="btn btn-primary" style="color: #fff;">
                 @Html.ActionLink("View All Person", "ViewAllPerson")
             </div>
         </div>
-        <br />
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <div class="btn btn-primary" style="color: #fff;">
+        <div class="col-lg-6 padding">
+            <div class="btn btn-primary pull-right" style="color: #fff;">
                 @Html.ActionLink("View All Person Type", "ViewAllPersonType")
             </div>
         </div>
-        <br />
-        <div class="col-lg-6">
+        <div class="col-lg-6 padding">
             <div class="btn btn-primary" style="color: #fff;">
                 <div>
                     @Html.ActionLink("View All Send Mail", "ViewAllSendMail")
                 </div>
             </div>
         </div>
-        <br />
-        <div class="col-lg-6">
+    </div>
+    <div class="row">
+        <div class="col-lg-12 padding" style=" margin-left:auto; margin-right:auto; display:block;">
             <div class="btn btn-primary" style="color: #fff;">
-                <div>
+                <div class="center-block">
                     @Html.ActionLink("View All Send To", "ViewAllSendTo")
                 </div>
             </div>
         </div>
-        
-    </div>
+
+     </div>
 </div>
 
