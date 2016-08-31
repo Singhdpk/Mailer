@@ -83,11 +83,11 @@ namespace SIMailer.Repositories
                         else
                         {
                             tblMail objtblMailUpdate = new tblMail();
-                            objtblMail.CategoryId = objMails.CategoryId;
-                            objtblMail.Title = objMails.Title;
-                            objtblMail.Subject = objMails.Subject;
-                            objtblMail.Body = objMails.Body;
-                            objtblMail.AdminId = objMails.AdminId;
+                            objtblMailUpdate.CategoryId = objMails.CategoryId;
+                            objtblMailUpdate.Title = objMails.Title;
+                            objtblMailUpdate.Subject = objMails.Subject;
+                            objtblMailUpdate.Body = objMails.Body;
+                            objtblMailUpdate.AdminId = objMails.AdminId;
                             using (dbSIMailerEntities dbs = new dbSIMailerEntities())
                             {
                                 dbs.tblMails.AddObject(objtblMailUpdate);

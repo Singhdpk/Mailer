@@ -1,8 +1,7 @@
 ﻿using SIMailer.Models;
 using SIMailer.Models.ModelClasses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Net.Mail;
 using System.Web;
 
@@ -11,20 +10,20 @@ namespace SIMailer
     public class Mailer
     {
 
-        #region Send Mail
         public bool SendMail(Mails objMails)
         {
             try
             {
                 foreach (var item in objMails.persons)
                 {
-                    if(item.isIncluded)
-                        {
+                    if (item.isIncluded)
+                    {
+                        string EmailWithTemplate = createEmailWithTemplate(item.Name, objMails.Subject, objMails.Body);
                         MailMessage mail = new MailMessage();
                         mail.To.Add(item.EmailId);
-                        mail.From = new MailAddress("from");
+                        mail.From = new MailAddress(" Email From");
                         mail.Subject = objMails.Subject;
-                        string Body = objMails.Body;
+                        string Body = EmailWithTemplate;
                         mail.Body = Body;
                         mail.IsBodyHtml = true;
                         SmtpClient smtp = new SmtpClient();
@@ -32,7 +31,7 @@ namespace SIMailer
                         smtp.Port = 587;
                         smtp.UseDefaultCredentials = false;
                         smtp.Credentials = new System.Net.NetworkCredential
-                        ("email Address", "password");// Enter senders User name and password
+                        ("Email From", "Password");// Enter senders User name and password
                         smtp.EnableSsl = true;
                         smtp.Send(mail);
 
@@ -55,7 +54,30 @@ namespace SIMailer
             }
             return false;
 
-        } 
-        #endregion
+        }
+        public string createEmailWithTemplate(string personName, string subject, string body)
+
+        {
+
+            string EmailWithTemplate = string.Empty;
+            //using streamreader for reading my htmltemplate   
+
+            using (StreamReader reader = new StreamReader(HttpContext.Current.Server.MapPath("~\\Templates\\TemplateTesting.html")))
+
+            {
+
+                EmailWithTemplate = reader.ReadToEnd();
+
+            }
+
+            EmailWithTemplate = EmailWithTemplate.Replace("{UserName}", personName); //replacing the required things  
+
+            EmailWithTemplate = EmailWithTemplate.Replace("{Title}", subject);
+
+            EmailWithTemplate = EmailWithTemplate.Replace("{message}", body);
+
+            return EmailWithTemplate;
+        }
+
     }
 }
